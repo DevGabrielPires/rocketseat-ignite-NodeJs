@@ -20,7 +20,7 @@ app.patch('/courses/:id', (request, response) => {
   return response.json(['curso 6', 'curso 6', 'curso 3', 'curso 4']);
 });
 
-app.patch('/courses/:id', (request, response) => {
+app.delete('/courses/:id', (request, response) => {
   return response.json(['curso 6', 'curso 6', 'curso 4']);
 });
 

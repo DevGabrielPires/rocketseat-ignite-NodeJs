@@ -10,12 +10,17 @@ const custumers = [];
 
 app.post('/account', (request, response) => {
   const { cpf, name } = request.body;
-  const id = uuidV4();
+
+  const custumersAlredyExist = custumers.some(custumer => custumer.cpf === cpf);
+
+  if (custumersAlredyExist) {
+    return response.status(400).json({ error: 'CPF já cadastrado!' });
+  }
 
   custumers.push({
     cpf,
     name,
-    id,
+    id: uuidV4(),
     statement: [],
   });
 
